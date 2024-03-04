@@ -40,31 +40,29 @@ describe("Pronostics", function () {
     });
 
     it("user inscription", async function () {
-      const tx = await pronosticsContract.connect(user).inscription("user");
-      await tx.wait();
+      await pronosticsContract.connect(user).inscription("user");
     });
 
-    // it("bet on a match with wrong bet", async function () {
-    //   await expect(pronosticsContract.connect(user).bet(0, 1, 2, { value: 0 }))
-    //     .to.be.revertedWith('You must pay the bet price');
-    // });
+    it("bet on a match with wrong bet", async function () {
+      await expect(pronosticsContract.connect(user).bet(0, 1, 2, { value: 0 }))
+        .to.be.revertedWith('You must pay the bet price');
+    });
 
     it("bet on a match", async function () {
       const betAmount = ethers.parseEther("0.01");
       await pronosticsContract.connect(user).bet(0, 1, 2, { value: betAmount });
     });
 
-    // it("bet second time on a match", async function () {
-    //   const betAmount = ethers.parseEther("0.01");
-    //   await expect(pronosticsContract.connect(user).bet(0, 1, 2, { value: betAmount }))
-    //     .to.be.revertedWith('You already bet on this match');
-    // });
+    it("bet second time on a match", async function () {
+      const betAmount = ethers.parseEther("0.01");
+      await expect(pronosticsContract.connect(user).bet(0, 1, 2, { value: betAmount }))
+        .to.be.revertedWith('You already bet on this match');
+    });
 
     // Advance time to match start
     it("advance time", async function () {
-      // await ethers.provider.send("evm_increaseTime", [31]);
-      // await ethers.provider.send("evm_mine");
-      await new Promise(resolve => setTimeout(resolve, 31000));
+      await ethers.provider.send("evm_increaseTime", [31]);
+      await ethers.provider.send("evm_mine");
     });
 
     it("bet on match already started", async function () {
