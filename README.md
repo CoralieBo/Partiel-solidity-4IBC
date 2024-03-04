@@ -1,13 +1,51 @@
-# Sample Hardhat Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+# Partiel Solidity 4IBC
 
-Try running some of the following tasks:
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
+## Authors
+
+- [@Coralie Boyer](https://github.com/coralieBo/)
+
+
+## Contract address
+
+Contract deployed on mumbai :
+[0xb3ED2e33011d56808aFD1CF109482f604110306A](https://mumbai.polygonscan.com/address/0xb3ED2e33011d56808aFD1CF109482f604110306A)
+
+
+## Configuration
+
+Configure this project with npm
+
+```bash
+  npm i
 ```
+    
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`RPC_URL`
+
+`OWNER_PRIVATE_KEY`
+
+`USER_PRIVATE_KEY`
+
+
+## Deployment
+
+To deploy this project run
+
+```bash
+  npm run deploy
+```
+
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm run test
+```
+

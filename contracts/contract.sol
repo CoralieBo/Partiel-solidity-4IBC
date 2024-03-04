@@ -66,7 +66,7 @@ contract Pronostics {
         results[_matchId] = Scores(_score1, _score2);
         matches[_matchId].finished = true;
         uint length = betters[_matchId].length;
-        address[] memory winners;
+        address[] memory winners = new address[](length);
         uint winnersLength;
         for(uint i = 0; i < length; i++){
             if(bets[_matchId][betters[_matchId][i]].score1 == _score1 && bets[_matchId][betters[_matchId][i]].score2 == _score2){
@@ -96,8 +96,8 @@ contract Pronostics {
 
     function bet(uint _matchId, uint _score1, uint _score2) external onlyUser payable {
         require(msg.value == betPrice, "You must pay the bet price");
-        require(matches[_matchId].date > block.timestamp, "Match already started");
         require(matches[_matchId].finished == false, "Match already finished");
+        require(matches[_matchId].date > block.timestamp, "Match already started");
         require(bets[_matchId][msg.sender].score1 == 0 && bets[_matchId][msg.sender].score2 == 0, "You already bet on this match");
         bets[_matchId][msg.sender] = Scores(_score1, _score2);
         betters[_matchId].push(msg.sender);

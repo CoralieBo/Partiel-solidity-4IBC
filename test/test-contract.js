@@ -71,20 +71,22 @@ describe("Pronostics", function () {
     });
 
     it("end match", async function () {
-      // await pronosticsContract.closeMatch(0, 1, 2);
-
-      // const results = await pronosticsContract.getResults(0);
-      // console.log(results);
-
-      const betters = await pronosticsContract.getBets(0);
-      console.log(betters);
+      await pronosticsContract.closeMatch(0, 1, 2);
     });
 
-    // it("refund", async function () {
-    //   const refundAmount = (await pronosticsContract.getUser(user.address))[2];
-    //   expect(refundAmount).to.equal(ethers.parseEther("0.01"));
-    //   // await pronosticsContract.connect(user).withdrawRefund(0);
-    // });
+    it("refund", async function () {
+      const refundAmount = (await pronosticsContract.getUser(user.address))[2];
+      expect(refundAmount).to.equal(ethers.parseEther("0.01"));
+      await pronosticsContract.connect(user).withdrawRefund();
+      const refundAmountAfter = (await pronosticsContract.getUser(user.address))[2];
+      expect(refundAmountAfter).to.equal(ethers.parseEther("0"));
+    });
+
+    it("bet on a match finished", async function () {
+      const betAmount = ethers.parseEther("0.01");
+      await expect(pronosticsContract.connect(user).bet(0, 1, 2, { value: betAmount }))
+        .to.be.revertedWith('Match already finished');
+    });
   });
 
 });
