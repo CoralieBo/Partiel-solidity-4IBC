@@ -1,0 +1,335 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_betPrice",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_date",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_team1",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_team2",
+				"type": "string"
+			}
+		],
+		"name": "addMatch",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_matchId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_score1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_score2",
+				"type": "uint256"
+			}
+		],
+		"name": "bet",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "betPrice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_matchId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_score1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_score2",
+				"type": "uint256"
+			}
+		],
+		"name": "closeMatch",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_matchId",
+				"type": "uint256"
+			}
+		],
+		"name": "getBets",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "score1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "score2",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Pronostics.Scores[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_matchId",
+				"type": "uint256"
+			}
+		],
+		"name": "getMatch",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "date",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "team1",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "team2",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "finished",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "betsAmount",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Pronostics.Match",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getMatches",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "date",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "team1",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "team2",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "finished",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "betsAmount",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Pronostics.Match[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_matchId",
+				"type": "uint256"
+			}
+		],
+		"name": "getResults",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "score1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "score2",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Pronostics.Scores",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_userAddress",
+				"type": "address"
+			}
+		],
+		"name": "getUser",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "username",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "refund",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct Pronostics.User",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_username",
+				"type": "string"
+			}
+		],
+		"name": "inscription",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_betPrice",
+				"type": "uint256"
+			}
+		],
+		"name": "setBetPrice",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdrawRefund",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
