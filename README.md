@@ -9,8 +9,8 @@
 
 ## Contract address
 
-Contract deployed on mumbai :
-[0xb3ED2e33011d56808aFD1CF109482f604110306A](https://mumbai.polygonscan.com/address/0xb3ED2e33011d56808aFD1CF109482f604110306A)
+Contract deployed and tested on mumbai :
+[0x0d4007ccB640e047C7107cA65dCB1CC42E0214ED](https://mumbai.polygonscan.com/address/0x0d4007ccB640e047C7107cA65dCB1CC42E0214ED)
 
 
 ## Configuration
